@@ -1,0 +1,15 @@
+// BREAKPOINTS
+$breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  'hd': 1600px,
+);
+
+// LAYERS
+$layers: base, footer, header, overlay, modal;
+
+@function set-z-index($name) {
+  @return index($layers, $name);
+}
