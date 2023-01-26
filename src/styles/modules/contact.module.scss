@@ -4,6 +4,7 @@
 .contact {
   background-color: rgba(var(--cr-primary-rgb), .1);
   padding: var(--s-section);
+  margin-top: var(--s-section);
 
   @include media("<md") {
     padding: var(--s-section) var(--s-gutter);
