@@ -1,0 +1,20 @@
+author: Chang Ya Yin
+url: https://yayinchang.com/
+title: Chang Ya Yin - Web Developer & UI/UX Designer
+description: Chang Ya Yin is a web developer and UI/UX designer who loves to create and get products into people's hands.
+email: irene84111@gmail.com
+social:
+  facebook:
+    title: Facebook
+    url: https://www.facebook.com/irene.yayin
+  linkedin:
+    title: LinkedIn
+    url: https://www.linkedin.com/in/ya-yin-chang
+  github:
+    title: GitHub
+    url: https://github.com/yayinchang
+nav:
+  - title: About
+    path: about
+  # - title: Posts
+  #   path: posts

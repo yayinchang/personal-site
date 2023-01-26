@@ -3,15 +3,17 @@
   --cr-white: #ffffff;
   --cr-subdued: #dddddd;
   --cr-primary: #009dae;
-  --cr-secondary: #546e7a;
+  --cr-primary-rgb: 0, 157, 174;
+  --cr-secondary: #78909c;
 
-  --w-hd: 1200px;
+  --w-hd: 1024px;
   --w-xl: 900px;
   --w-lg: 600px;
   --w-md: 480px;
   --w-sm: 320px;
 
   --s-gutter: 1.5rem;
+  --s-gutter-lg: 2rem;
   --s-section: 3rem;
   --s-section-half: 1.5rem;
   --s-container-max: 1600px;
@@ -31,6 +33,7 @@
 @include media(">=lg") {
   :root {
     --s-gutter: 2rem;
+    --s-gutter-lg: 2.5rem;
     --s-section: 5rem;
     --s-section-half: 2.5rem;
   }
@@ -99,22 +102,45 @@ footer {
   z-index: set-z-index(footer);
 }
 
-h1 {
-  font-weight: 700;
-  font-size: 4rem;
-  line-height: 5rem;
-}
-
-h2 {
-  font-weight: 400;
-  font-size: 2.25rem;
+h1,
+.t-heading-1 {
+  font-weight: 600;
+  font-size: 3rem;
   line-height: 4rem;
 }
 
-h3 {
-  font-weight: 300;
+h2,
+.t-heading-2 {
+  font-weight: 400;
   font-size: 2rem;
   line-height: 3rem;
+}
+
+h3,
+.t-heading-3 {
+  font-weight: 400;
+  font-size: 1.75rem;
+  line-height: 2.5rem;
+}
+
+@include media(">=lg") {
+  h1,
+  .t-heading-1 {
+    font-size: 4rem;
+    line-height: 5rem;
+  }
+
+  h2,
+  .t-heading-2 {
+    font-size: 2.25rem;
+    line-height: 3.5rem;
+  }
+
+  h3,
+  .t-heading-3 {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
 }
 
 h4,
@@ -122,14 +148,15 @@ h5,
 h6,
 p,
 ol,
-ul {
+ul,
+.t-body {
   font-weight: 400;
   font-size: 1rem;
-  line-height: 1.25rem;
+  line-height: 2.5rem;
 }
 
 .t-label {
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -141,8 +168,42 @@ ul {
   letter-spacing: 0.1em;
 }
 
+.t-large {
+  font-size: 1.5rem;
+}
+
 .t-small {
   font-size: 0.75rem;
+}
+
+.t-light {
+  font-weight: 300;
+}
+
+.t-bold {
+  font-weight: 600;
+}
+
+.t-link,
+.t-link-dotted {
+  text-decoration: underline;
+  transition: opacity 0.4s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.t-link-dotted {
+  text-decoration: underline dotted;
+}
+
+.type-spacing {
+	& > *:not(:last-child) {
+		margin-bottom: var(--s-gutter);
+	}
 }
 
 // LAYOUTS
@@ -199,7 +260,8 @@ html {
 .c-sm,
 .c-md,
 .c-lg,
-.c-xl {
+.c-xl,
+.c-hd {
   position: relative;
   width: calc(100vw - var(--s-gutter) * 2);
   max-width: var(--s-container-max);

@@ -1,4 +1,4 @@
-import '@/styles/scss/index.scss';
+import '@/styles/index.scss';
 import Layout from '@/layout';
 
 export default function App({ Component, pageProps }) {
