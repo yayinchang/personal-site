@@ -1,33 +1,39 @@
 :root {
   --cr-black: #37474f;
   --cr-white: #ffffff;
-  --cr-subdued: #dddddd;
+  --cr-subdued: #e2e2e2;
   --cr-primary: #009dae;
-  --cr-secondary: #546e7a;
+  --cr-primary-rgb: 0, 157, 174;
+  --cr-secondary: #78909c;
 
-  --w-hd: 1200px;
+  --w-hd: 1024px;
   --w-xl: 900px;
   --w-lg: 600px;
   --w-md: 480px;
   --w-sm: 320px;
 
-  --s-gutter: 1rem;
-  --s-edge: 1.5rem;
+  --s-gutter: 1.5rem;
+  --s-gutter-lg: 2rem;
   --s-section: 3rem;
   --s-section-half: 1.5rem;
   --s-container-max: 1600px;
 }
 
-// TODO: dark theme
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//   }
-// }
+/* TODO: dark theme
+@media (prefers-color-scheme: dark) {
+  :root {
+  }
+
+  html {
+    color-scheme: dark;
+  }
+}
+*/
 
 @include media(">=lg") {
   :root {
-    --s-gutter: 1.5rem;
-    --s-edge: 2rem;
+    --s-gutter: 2rem;
+    --s-gutter-lg: 2.5rem;
     --s-section: 5rem;
     --s-section-half: 2.5rem;
   }
@@ -84,22 +90,37 @@ footer {
   font-family: var(--font-poppins), var(--font-noto-sans-tc), Helvetica, Arial, 'PingFang TC', sans-serif;
 }
 
-h1 {
-  font-weight: 700;
-  font-size: 4rem;
-  line-height: 5rem;
+main {
+  z-index: set-z-index(base);
 }
 
-h2 {
+header {
+  z-index: set-z-index(header);
+}
+
+footer {
+  z-index: set-z-index(footer);
+}
+
+h1,
+.t-heading-1 {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.25rem;
+}
+
+h2,
+.t-heading-2 {
   font-weight: 400;
-  font-size: 2.25rem;
-  line-height: 4rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
 }
 
-h3 {
-  font-weight: 300;
-  font-size: 2rem;
-  line-height: 3rem;
+h3,
+.t-heading-3 {
+  font-weight: 400;
+  font-size: 1.75rem;
+  line-height: 2.5rem;
 }
 
 h4,
@@ -107,16 +128,114 @@ h5,
 h6,
 p,
 ol,
-ul {
+ul,
+.t-body {
   font-weight: 400;
   font-size: 1rem;
-  line-height: 1.25rem;
+  line-height: 2rem;
+}
+
+blockquote {
+  display: block;
+  margin: 0 auto;
+  padding: calc(var(--s-gutter) / 2) var(--s-gutter);
+  border-left: 5px solid var(--cr-subdued);
+  color: var(--cr-secondary);
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  font-style: italic;
+  font-weight: 300;
+}
+
+@include media(">=md") {
+  h1,
+  .t-heading-1 {
+    font-size: 4rem;
+    line-height: 4.5rem;
+  }
+
+  h2,
+  .t-heading-2 {
+    font-size: 2.25rem;
+    line-height: 3.25rem;
+  }
+
+  h3,
+  .t-heading-3 {
+    font-size: 2rem;
+    line-height: 2.75rem;
+  }
+
+  h4,
+  h5,
+  h6,
+  p,
+  ol,
+  ul,
+  .t-body {
+    font-size: 1.25rem;
+    line-height: 2.5rem;
+  }
 }
 
 .t-label {
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
+}
+
+.t-label-small {
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.t-large {
+  font-size: 1.5rem;
+}
+
+.t-small {
+  font-size: 0.75rem;
+}
+
+.t-light {
+  font-weight: 300;
+}
+
+.t-bold {
+  font-weight: 600;
+}
+
+.t-italic {
+  font-style: italic;
+}
+
+.t-link,
+.t-link-dotted {
+  text-decoration: underline;
+  transition: opacity 0.4s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.t-link-dotted {
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+.type-spacing {
+	& > *:not(:last-child) {
+		margin-bottom: var(--s-gutter);
+	}
+
+	& > p:not(:last-child) {
+		margin-bottom: calc(var(--s-gutter) / 2);
+	}
 }
 
 // LAYOUTS
@@ -135,12 +254,12 @@ html {
 
 ::selection {
   text-shadow: none;
-  background-color: rgba(125, 125, 125, 0.3);
+  background-color: rgba(var(--cr-primary-rgb), 0.1);
 }
 
 ::-moz-selection {
   text-shadow: none;
-  background-color: rgba(125, 125, 125, 0.3);
+  background-color: rgba(var(--cr-primary-rgb), 0.1);
 }
 
 @media (hover: hover) {
@@ -154,13 +273,29 @@ html {
   }
 }
 
+.main-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  header,
+  footer {
+    flex: none;
+  }
+
+  main {
+    flex: 1;
+  }
+}
+
 .c,
 .c-sm,
 .c-md,
 .c-lg,
-.c-xl {
+.c-xl,
+.c-hd {
   position: relative;
-  width: calc(100vw - var(--s-edge) * 2);
+  width: calc(100vw - var(--s-gutter) * 2);
   max-width: var(--s-container-max);
   margin-left: auto;
   margin-right: auto;
@@ -286,6 +421,20 @@ html {
 
 .is-hidden {
   display: none !important;
+}
+
+.divider {
+  font-size: 0.75rem;
+  color: var(--cr-secondary);
+  padding: 0 4px;
+
+  &:after {
+    content: '• • •';
+  }
+
+  &--center {
+    text-align: center;
+  }
 }
 
 @include media("<md") {

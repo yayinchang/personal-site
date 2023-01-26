@@ -1,0 +1,13 @@
+@import 'include-media';
+@import '../base/layout.scss';
+
+.contact {
+  background-color: rgba(var(--cr-primary-rgb), .1);
+  padding: var(--s-section);
+  margin-top: var(--s-section);
+
+  @include media("<md") {
+    padding: var(--s-section) var(--s-gutter);
+    margin: 0 calc(-1 * var(--s-gutter));
+  }
+}

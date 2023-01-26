@@ -1,0 +1,61 @@
+subtitle: Coder, designer, cat lover and more.
+description: People usually call me Irene, I'm also a gym goer who lives in Taipei 🇹🇼 with David, an 🐈, and drinks coffee everyday.
+summary_html: >
+  <p>With 6+ years experience in IT industry, my expertise lies in frontend&nbsp;development and user&nbsp;interface/interaction&nbsp;design.</p>
+  <p>In between jobs, I'm a freelancer who delivers digital&nbsp;solutions along with focuses on personal&nbsp;growth.</p>
+education:
+  - school: National Taiwan University of Science and Technology
+    major: |-
+      Bachelor of Design,
+      Specialized in Graphic Design
+    year: 2014 - 2018
+experience:
+  - company: View Source
+    url: https://view-source.com/
+    title: Frontend Developer
+    year: February 2022 - Present
+  - company: Lootex Technology Co., Ltd.
+    url: https://lootex.io/
+    title: UI Designer
+    year: July 2021 - October 2021
+  - company: Google
+    url:
+    title: Web Ecosystem Consultant
+    year: July 2019 - December 2020
+  - company: 5xRuby CO., LTD
+    url: https://5xruby.tw/
+    title: |-
+      Frontend Developer
+      UI Designer
+    year: July 2016 - June 2019
+knowledge:
+  - Branding/Identity Design
+  - Client Pitching
+  - Frontend Development
+  - Graphic Design
+  - Responsive Web Design
+  - UI/UX Design
+skills:
+  - Adobe Photoshop
+  - Adobe Illustrator
+  - CSS3 / SASS
+  - Figma
+  - Git
+  - HTML5
+  - JavaScript
+  - Next.js
+  - Photoshop
+  - Rails
+  - React
+  - Shopify
+gallery:
+  - name: yayinchang-social-1.jpeg
+    alt: Actions on Google Sharing
+  - name: yayinchang-social-2.jpeg
+    alt: 2020 Taiwan Pride
+  - name: yayinchang-social-3.jpeg
+    alt: Google Tech For Creator Sharing
+  - name: yayinchang-social-4.jpeg
+    alt: Nice to meet you!
+quote: |-
+  “Most people overestimate what they can achieve in a year and underestimate what they can achieve in ten years.” ― Bill Gates
