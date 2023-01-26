@@ -1,0 +1,23 @@
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.wrapper {
+  padding: var(--s-gutter) 0;
+}
+
+.nav_item {
+  transition: color 0.4s;
+
+  &.is-active {
+    color: var(--cr-primary);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--cr-primary);
+    }
+  }
+}

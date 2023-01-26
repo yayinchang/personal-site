@@ -11,23 +11,26 @@
   --w-md: 480px;
   --w-sm: 320px;
 
-  --s-gutter: 1rem;
-  --s-edge: 1.5rem;
+  --s-gutter: 1.5rem;
   --s-section: 3rem;
   --s-section-half: 1.5rem;
   --s-container-max: 1600px;
 }
 
-// TODO: dark theme
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//   }
-// }
+/* TODO: dark theme
+@media (prefers-color-scheme: dark) {
+  :root {
+  }
+
+  html {
+    color-scheme: dark;
+  }
+}
+*/
 
 @include media(">=lg") {
   :root {
-    --s-gutter: 1.5rem;
-    --s-edge: 2rem;
+    --s-gutter: 2rem;
     --s-section: 5rem;
     --s-section-half: 2.5rem;
   }
@@ -84,6 +87,18 @@ footer {
   font-family: var(--font-poppins), var(--font-noto-sans-tc), Helvetica, Arial, 'PingFang TC', sans-serif;
 }
 
+main {
+  z-index: set-z-index(base);
+}
+
+header {
+  z-index: set-z-index(header);
+}
+
+footer {
+  z-index: set-z-index(footer);
+}
+
 h1 {
   font-weight: 700;
   font-size: 4rem;
@@ -116,7 +131,18 @@ ul {
 .t-label {
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
+}
+
+.t-label-small {
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.t-small {
+  font-size: 0.75rem;
 }
 
 // LAYOUTS
@@ -154,13 +180,28 @@ html {
   }
 }
 
+.main-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  header,
+  footer {
+    flex: none;
+  }
+
+  main {
+    flex: 1;
+  }
+}
+
 .c,
 .c-sm,
 .c-md,
 .c-lg,
 .c-xl {
   position: relative;
-  width: calc(100vw - var(--s-edge) * 2);
+  width: calc(100vw - var(--s-gutter) * 2);
   max-width: var(--s-container-max);
   margin-left: auto;
   margin-right: auto;
